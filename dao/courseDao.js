@@ -16,11 +16,13 @@ class CourseDAO {
         if (req.query.search) {
           let search = req.query.search
           models.Course.findAll({ offset: offset,limit: limit, where: {name: { [op.like]: '%'+ search +'%' } }, raw: true}).then(courses => {
+              if(courses.length == 0){next = null}
             res.json({previous,next,offset,limit,courses});
           })
           .catch(err => console.log(err));
         } else {
           models.Course.findAll({offset: offset,limit: limit}).then(courses => {
+            if(courses.length == 0){next = null}
             res.json({previous,next,offset,limit,courses});
           })
           .catch(err => console.log(err));
