@@ -15,6 +15,7 @@ class CourseDAO {
         let next = `courses/?limit=${limit}&offset=${offset + limit}`
         if (req.query.search) {
           let search = req.query.search
+          next = next + `&search=${search}`
           models.Course.findAll({ offset: offset,limit: limit, where: {name: { [op.like]: '%'+ search +'%' } }, raw: true}).then(courses => {
               if(courses.length == 0){next = null}
             res.json({previous,next,offset,limit,courses});
