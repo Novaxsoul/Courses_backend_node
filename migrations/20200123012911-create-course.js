@@ -11,8 +11,8 @@ module.exports = {
       name: {
         type: Sequelize.STRING
       },
-      descrp: {
-        type: Sequelize.TEXT
+      provider: {
+        type: Sequelize.STRING
       },
       price: {
         type: Sequelize.FLOAT
