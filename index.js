@@ -1,3 +1,4 @@
+const path = require('path');
 const express = require('express')
 const bodyParser = require('body-parser')
 const cors = require('cors')
@@ -6,14 +7,18 @@ const courseRoutes = require('./routes/courseRoutes')
 
 const app = express()
 
+// Images directory to serve
+const dir = path.join(__dirname, 'public')
+
 // Middlewares
+app.use(express.static(dir));
 app.use(bodyParser.json())
 app.use(expressValidator())
 app.use(cors())
 
 
 // Import routes
-app.use('/api/course', courseRoutes);
+app.use('/api/courses', courseRoutes)
 
 const port = 8000;
 
