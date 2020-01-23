@@ -1,20 +1,13 @@
 const { check, validationResult } = require('express-validator');
 
 exports.courseValidator = (req, res, next) => {
-
-    console.log(req.body)
     req.check('name', 'Write a name').notEmpty();
-    req.check('name', 'El título debe tener como mínimo 4 caracteres y máximo 255 caracteres').isLength({
-        min: 4,
-        max: 255
-    });
-    req.check('descrp', 'Write a description').notEmpty();
-    req.check('descrp', 'La descripción debe tener como mínimo 4 caracteres y máximo 2000 caracteres').isLength({
-        min: 4,
-        max: 2000
-    });
-
-    // Revisa errores
+    req.check('provider', 'Write a provider').notEmpty();
+    req.check('price', 'Write a price').notEmpty();
+    req.check('rate', 'Pick a rate').notEmpty();
+    req.check('credits', 'Pick credits').notEmpty();
+    req.check('image', 'Choose an image').notEmpty();
+    // Check errors
     const errors = req.validationErrors()
 
     if (errors) {
