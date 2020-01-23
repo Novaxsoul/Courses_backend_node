@@ -1,8 +1,11 @@
+// Dependencies and files required
 const express = require('express');
 const CourseDAO = require('../dao/courseDao');
 
+// Create a CourseDao object
 const CourseDao = new CourseDAO()
 
+//Exports the methods for get, save, edit and delete the courses
 exports.getCourses = (req, res) => {
     res = CourseDao.findAllCourses(req, res);
 }

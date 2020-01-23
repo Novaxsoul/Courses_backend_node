@@ -1,5 +1,7 @@
+// Dependencies required
 const { check, validationResult } = require('express-validator');
 
+// Export validations for request data
 exports.courseValidator = (req, res, next) => {
     req.check('name', 'Write a name').notEmpty();
     req.check('provider', 'Write a provider').notEmpty();
