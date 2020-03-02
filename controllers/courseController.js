@@ -1,5 +1,4 @@
 // Dependencies and files required
-const express = require('express');
 const CourseDAO = require('../dao/courseDao');
 
 // Create a CourseDao object
