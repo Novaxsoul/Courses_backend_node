@@ -3,7 +3,7 @@ const models = require('../models')
 const Sequelize = require('sequelize');
 const op = Sequelize.Op;
 
-// Create a class to map the Course table
+// Class to map the Course table
 class CourseDAO {
     // Method to get all courses
     findAllCourses(req, res) {
