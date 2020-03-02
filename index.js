@@ -5,6 +5,8 @@ const bodyParser = require('body-parser')
 const cors = require('cors')
 const expressValidator = require('express-validator')
 const courseRoutes = require('./routes/courseRoutes')
+const userRoutes = require('./routes/userRoutes')
+const db = require('./models/index')
 
 // Create the server
 const app = express()
@@ -21,8 +23,11 @@ app.use(cors())
 
 // Import routes
 app.use('/api/courses', courseRoutes)
+app.use('/api/users', userRoutes)
 
 // Port of the server
 const port = 8000;
 
-app.listen(port, () => { console.log(`A node JS API is listening on port: ${port}`) })
+db.sequelize.sync().then(() => {
+    app.listen(port, () => { console.log(`A node JS API is listening on port: ${port}`) })
+})
