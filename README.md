@@ -1,4 +1,4 @@
-# TT_Test_Backend
+# Courses_backend_node
 
 # How to run the project
 
